@@ -44,6 +44,7 @@ wait
 read -p "Install Custom Touchpad Settings? (y/n) " RESP
 if [ "$RESP" = "y" ]; then
 	echo "Installing touchpad settings"
+	dconf write /org/gnome/settings-daemon/plugins/mouse/active false
 	sudo rm -rf /etc/X11/xorg.conf.d/
 	sudo mkdir /etc/X11/xorg.conf.d/
 	sudo mv 50-synaptics.conf /etc/X11/xorg.conf.d/
